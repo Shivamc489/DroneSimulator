@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Target : MonoBehaviour
 {
-    private const float maxSpawnRadius = 40f;
+    [SerializeField] Vector3 max, min;
     private const float clearRadius = 2f;
 
     public float Distance(Vector3 pos)
@@ -17,7 +17,10 @@ public class Target : MonoBehaviour
 
     public void Randomize()
     {
-        transform.localPosition = Random.insideUnitSphere * maxSpawnRadius;
+        float xR = Random.Range(min.x, max.x);
+        float xY = Random.Range(min.y, max.y);
+        float xZ = Random.Range(min.z, max.z);
+        transform.localPosition = new Vector3(xR, xY, xZ);
         if (Physics.OverlapSphere(transform.position, clearRadius, Obstacle.LayerMask).Length > 0)
         {
             Randomize();
