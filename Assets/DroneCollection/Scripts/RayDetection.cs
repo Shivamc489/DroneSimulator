@@ -82,7 +82,7 @@ public class RayDetection
         line.transform.parent = parent;
         line.transform.name = "line";
         line.material = new Material(Shader.Find("Sprites/Default"));
-        line.widthMultiplier = 0.01f;
+        line.widthMultiplier = 0.05f;
         line.receiveShadows = false;
         line.shadowCastingMode = ShadowCastingMode.Off;
         line.motionVectorGenerationMode = MotionVectorGenerationMode.ForceNoMotion;
